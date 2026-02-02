@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d0jg1nksj00b3"]
+
+[ext_resource type="Script" uid="uid://c5qj1i654xmvf" path="res://Scripts/movemnt.gd" id="1_lv08y"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bjrf3"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bjrf3"]
+
+[node name="Penguin" type="CharacterBody3D" unique_id=1399390547]
+script = ExtResource("1_lv08y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1724466433]
+shape = SubResource("CapsuleShape3D_bjrf3")
+debug_color = Color(0, 0.53333336, 0.98039216, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2076013426]
+mesh = SubResource("CapsuleMesh_bjrf3")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=870254793]
+transform = Transform3D(1, 0, 0, 0, 0.79096735, 0.61185837, 0, -0.61185837, 0.79096735, 0, 3.5278234, 3.5527105)
+fov = 95.0
