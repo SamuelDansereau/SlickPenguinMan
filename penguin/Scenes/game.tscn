@@ -8,12 +8,15 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qxrlw"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ebmjs"]
+
 [node name="Game" type="Node3D" unique_id=1405119702]
 
 [node name="CharacterBody3D" parent="." unique_id=1399390547 instance=ExtResource("1_ebmjs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4993553, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1578213716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7750697, 8.2638035)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2090563171]
 
@@ -29,13 +32,13 @@ mesh = SubResource("BoxMesh_ebmjs")
 shape = SubResource("BoxShape3D_qxrlw")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="StaticBody3D2" unique_id=1508878506]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.181992)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73501, 0, -16.181992)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2/StaticBody3D2" unique_id=877769543]
+shape = SubResource("BoxShape3D_ebmjs")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2/StaticBody3D2" unique_id=1600085887]
 mesh = SubResource("BoxMesh_ebmjs")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2/StaticBody3D2" unique_id=1319675919]
-shape = SubResource("BoxShape3D_qxrlw")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="StaticBody3D2/StaticBody3D2" unique_id=456542097]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -49.73532)

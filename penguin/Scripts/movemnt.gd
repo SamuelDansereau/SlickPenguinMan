@@ -2,9 +2,9 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
-const TERMINAL_VELOCITY = sqrt(((2.0*5.0*9.81)/(1.225*0.1*0.8)))
-var acceleration = 15.0
+const JUMP_VELOCITY = 7.5
+const TERMINAL_VELOCITY = sqrt(((2.0*5.0*9.81)/(1.225*0.1*0.8)))*10
+var acceleration = 0.5
 
 
 func _physics_process(delta: float) -> void:
@@ -23,20 +23,19 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	var forward = -1
+	if Input.is_action_pressed("ui_up"):
+		acceleration = .75
+	elif Input.is_action_pressed("ui_down"):
+		forward = 0
+	else:
+		forward = -1
+		acceleration = 0.5
 	
-	if direction.z > 0 :
-		forward == 0
-	elif direction.z < 0 :
-		forward == -2
-	else:
-		acceleration == 15.0
+	
 		
-	var goTo = TERMINAL_VELOCITY * forward
-	if velocity.z < TERMINAL_VELOCITY:
-		velocity = velocity.move_toward(Vector3(direction.x * 7.5,0,goTo), acceleration * 2)
+	var goTo = TERMINAL_VELOCITY * forward - 25.0
+	velocity.z = move_toward(velocity.z, goTo, acceleration)
+	velocity.x = move_toward(velocity.x, 15.0 * direction.x, acceleration)
 
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()

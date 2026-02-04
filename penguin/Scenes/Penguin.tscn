@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://d0jg1nksj00b3"]
 
 [ext_resource type="Script" uid="uid://c5qj1i654xmvf" path="res://Scripts/movemnt.gd" id="1_lv08y"]
+[ext_resource type="PackedScene" uid="uid://cdwh762n13n7q" path="res://Assets/Penguin_Sliding.fbx" id="2_02pnu"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bjrf3"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_bjrf3"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_es5b8"]
+size = Vector3(0.98876953, 1, 1.461792)
 
 [node name="Penguin" type="CharacterBody3D" unique_id=1399390547]
 script = ExtResource("1_lv08y")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1724466433]
-shape = SubResource("CapsuleShape3D_bjrf3")
-debug_color = Color(0, 0.53333336, 0.98039216, 1)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2076013426]
-mesh = SubResource("CapsuleMesh_bjrf3")
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=870254793]
 transform = Transform3D(1, 0, 0, 0, 0.79096735, 0.61185837, 0, -0.61185837, 0.79096735, 0, 3.5278234, 3.5527105)
 fov = 95.0
+
+[node name="Penguin_Sliding" parent="." unique_id=622119999 instance=ExtResource("2_02pnu")]
+transform = Transform3D(6.1030786e-10, -4.370713e-08, 1, -0.99990255, -0.013962217, 0, 0.013962217, -0.99990255, -4.371139e-08, 2.8818204, 0, 1.7882745)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=20196961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0056152344, 0, 0.230896)
+shape = SubResource("BoxShape3D_es5b8")
